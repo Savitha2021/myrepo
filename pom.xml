@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>XRayCucumber</groupId>
+	<artifactId>XRayCucumber</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>XRayCucumber</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<!-- Create m2 repository to save xrayLib.jar -->
+	<!-- <repositories> <repository> <id>local-maven-repository</id> <url>file://${local.repository.folder}</url> 
+		<url>file:///${project.basedir}/local-maven-repository</url> <id>project-repo</id> 
+		<url>file://${project.basedir}/src/main/resources/repo</url> <releases> <enabled>true</enabled> 
+		</releases> <id>releases</id> <name>taas-maven-libs-release</name> <url>https://artifactrepo.jnj.com/artifactory/taas-maven-libs-release</url> 
+		</repository> <repository> <snapshots> <enabled>true</enabled> </snapshots> 
+		<id>snapshots</id> <name>taas-maven-snapshot</name> <url>https://artifactrepo.jnj.com/artifactory/taas-maven-snapshot/xrayLib/xrayLib/xrayLib/xrayLib-xrayLib.jar</url> 
+		<url>https://artifactrepo.jnj.com/artifactory/taas-maven-snapshot</url> </repository> 
+		</repositories> -->
+
+	<dependencies>
+		<!-- Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		<!-- Selenium Java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.4.0</version>
+		</dependency>
+		<!-- Cucumber Java -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Cucumber JVM -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm</artifactId>
+			<version>RELEASE</version>
+			<type>pom</type>
+		</dependency>
+		<!-- Cucumber junit -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Cucumber JVM Deps -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm-deps</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<!-- Cucumber Reporting -->
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<!-- Cucumber Gherkins -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>gherkin</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<!-- Cucumber PicoContainer -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.sun/tools -->
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.5.0</version>
+			<scope>system</scope>
+			<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+			<exclusions>
+				<exclusion>
+					<artifactId>tools</artifactId>
+					<groupId>com.sun</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Extent Reports -->
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
+		<!-- Appli-Tools -->
+		<dependency>
+			<groupId>com.applitools</groupId>
+			<artifactId>eyes-selenium-java3</artifactId>
+			<version>3.3</version>
+		</dependency>
+		<!-- Attempt to override httpcore package with one that does not cause 
+			error! -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4</version>
+		</dependency>
+		<!-- OkHttp for JIRA REST API -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20190722</version>
+		</dependency>
+		<!-- Custom Dependencies -->
+		<dependency>
+			<!-- <groupId>com.jnj</groupId> <artifactId>xrayLib</artifactId> <version>0.0.1</version> -->
+			<groupId>xrayLib</groupId>
+			<artifactId>xrayLib</artifactId>
+			<version>xrayLib</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/repo/xrayLib-xrayLib.jar</systemPath>
+			<!-- <scope>system</scope>xrayLib-xrayLib <systemPath>${project.basedir}/src/main/resources/repo/xrayLib.jar</systemPath> 
+				<systemPath>${artifactID}https://artifactrepo.jnj.com/artifactory/taas-maven-snapshot/xrayLib/xrayLib/xrayLib/xrayLib-xrayLib.jar</systemPath> -->
+			<type>jar</type>
+		</dependency>
+
+	</dependencies>
+</project>
